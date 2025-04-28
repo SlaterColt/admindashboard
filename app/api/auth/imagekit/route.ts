@@ -1,6 +1,7 @@
 import config from "@/lib/config";
 import ImageKit from "imagekit";
 import { NextResponse } from "next/server";
+import {env} from "@/env";
 
 const {
   env: {
@@ -8,15 +9,7 @@ const {
   },
 } = config;
 
-if (!publicKey || !privateKey || !urlEndpoint)
-  throw new Error(
-    "Missing ImageKit env vars:\n" +
-      `publicKey=${publicKey}\n` +
-      `privateKey=${privateKey}\n` +
-      `urlEndpoint=${urlEndpoint}`,
-  );
-
-const imagekit = new ImageKit({ publicKey, privateKey, urlEndpoint });
+const imagekit = new ImageKit({ publicKey: env.NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY, privateKey: env.IMAGEKIT_PRIVATE_KEY, urlEndpoint: env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT });
 
 export async function GET() {
   return NextResponse.json(imagekit.getAuthenticationParameters());
