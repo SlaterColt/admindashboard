@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {cn, getInitials} from "@/lib/utils";
-import {Avatar, AvatarFallback } from "@/components/ui/avatar";
+import {Avatar, AvatarFallback} from "@/components/ui/avatar";
 import {Session} from "next-auth";
 
 const Header = ({session}: {session: Session}) => {
@@ -30,11 +30,11 @@ const Header = ({session}: {session: Session}) => {
           </Link>
         </li>
           <li>
-              <Link href={"/my-profile"}></Link>
-              <Avatar>
-                  <AvatarFallback className={"bg-amber-100"}>{getInitials(session?.user?.name || "IN")}</AvatarFallback>
-              </Avatar>
-
+              <Link href={"/my-profile"}>
+                  <Avatar>
+                      <AvatarFallback className={"bg-amber-100"}>{getInitials(session?.user?.name || 'IN')}</AvatarFallback>
+                  </Avatar>
+              </Link>
           </li>
       </ul>
     </header>
