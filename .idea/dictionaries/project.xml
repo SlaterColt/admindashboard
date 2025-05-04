@@ -2,6 +2,11 @@
   <dictionary name="project">
     <words>
       <w>databaseurl</w>
+      <w>qstash</w>
+      <w>qtash</w>
+      <w>ratelimit</w>
+      <w>ratelimiter</w>
+      <w>upstash</w>
     </words>
   </dictionary>
 </component>
